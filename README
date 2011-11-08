@@ -1,3 +1,9 @@
+Buildiso is mainly a web app to simplify creation of cobbler boot ISOs in an environment where PXE-boot not possible.
+In recent cobbler-web (the upstream project) has this feature already, but for users of older cobbler versions 
+this might be interesting, especially if you're using Spacewalk/RHN Satellite which comes with older release of cobbler. 
+
+Screenshots can be found here: http://files.radicore.se/ 
+
 Setup instructions
 
 1. install python-webpy (0.35), cobbler 2.0* and mod_wsgi
