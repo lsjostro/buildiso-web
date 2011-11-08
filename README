@@ -6,6 +6,7 @@ Setup instructions
 
 3a. move buildiso-web dir to /var/www/
  b. chown -R apache:apache /var/www/buildiso-web 
+ c. create sessions and tmp dir inside buildiso-web
 
 4. edit /etc/cobbler/settings: (only when used with Spacewalk/Satellite)
       redhat_management_permissive: 1  
