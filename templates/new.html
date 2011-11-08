@@ -1,0 +1,20 @@
+$def with (form, message=None)
+
+<ul>
+<form name="main" method="post"> 
+<fieldset class="new">
+<h1>Add new server</h1><br/>
+$if not form.valid or message:
+   <script>
+   \$(document).ready(function() {
+   \$('#adv_network').show();
+   \$('#bond').show();
+   \$('input[id="redhat_management_key"]').show();
+   });
+   </script>
+$if message:
+   <strong class="wrong">$message</strong>
+$:form.render_css()
+<input type="submit" class="c-button c-button-red" value="Save"/>    </form>
+</fieldset>
+</ul>

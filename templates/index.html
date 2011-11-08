@@ -1,0 +1,12 @@
+$def with (systems)
+
+<ul>
+<form action="" method="post">
+<fieldset class="checkboxes">
+<h1>Cobbler Systems</h1><br/>
+    $for system in systems: 
+         <label class="label_check" for="$system['name']"><input type="checkbox" id="sys_" name="sys" value="$system['name']"/><a href=edit/$system['uid']>$system['name']</a></label>
+<input type="submit" class="c-button c-button-red" value="Download Boot ISO" />
+</fieldset> 
+</form>
+</ul>

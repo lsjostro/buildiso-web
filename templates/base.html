@@ -1,0 +1,45 @@
+$def with (page)
+
+<html>
+<head>
+        <title>Buildiso App</title>
+        <link rel="stylesheet" type="text/css" href="/buildiso/static/style.css" />
+        <script type="text/javascript" src="/buildiso/static/jquery.min.js"></script>
+        <script type="text/javascript" src="/buildiso/static/jquery-ui.min.js"></script>
+<script>
+\$(document).ready(function() {
+  \$('#adv_network').hide();
+  \$('#bond').hide();
+  \$('input[id="redhat_management_key"]').hide();
+  \$('[for="advnet"]').click(function() {
+    \$('#adv_network').toggle(400);
+    return false;
+  });
+  \$('input#bonding').change(
+    function() {
+        if (\$(this).is(':checked')) {
+            \$('#bond').show('fast');
+            return false;
+        } else {
+            \$('#bond').hide('fast');
+            return false;
+        }
+   });
+  \$('[for="redhat_management_key"]').click(function() {
+    \$('input[id="redhat_management_key"]').toggle(400);
+    return false;
+  });
+});
+</script>
+</head>
+<body>
+<div id="header">
+    <a href="/buildiso/">Home</a>
+    <a href="/buildiso/new">Add New Server</a>
+    <a href="/buildiso/logout">Logout</a>
+</div>
+<div id="content">
+$:page
+</div>
+</body>
+</html>

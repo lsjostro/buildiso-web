@@ -1,0 +1,15 @@
+Setup instructions
+
+1. install python-webpy (0.35), cobbler 2.0* and mod_wsgi
+
+2. move apache config buildiso.conf to /etc/httpd/conf.d/
+
+3a. move buildiso-web dir to /var/www/
+ b. chown -R apache:apache /var/www/buildiso-web 
+
+4. edit /etc/cobbler/settings: (only when used with Spacewalk/Satellite)
+      redhat_management_permissive: 1  
+
+5. service httpd restart; service cobblerd restart
+
+6. point browser to https://<hostname>/buildiso/login and login with cobbler credentials

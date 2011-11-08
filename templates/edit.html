@@ -1,0 +1,26 @@
+$def with (form, uid, message=None)
+   <script>
+   \$(document).ready(function() {
+   \$('#adv_network').show();
+   if (\$('input#bonding').is(':checked')){
+        \$('#bond').show();
+   }
+   \$('input[id="redhat_management_key"]').show();
+   });
+   </script>
+
+<ul>
+<form name="main" method="post"> 
+<fieldset class="edit">
+<h1>Edit server</h1><br/>
+$if message:
+   <strong class="wrong">$message</strong>
+$:form.render_css()
+<input type="submit" class="c-button c-button-red" value="save" />    </form>
+</fieldset>
+<form action="../delete/$uid" method="post">
+<fieldset class="del">
+    <input type="submit" class="c-button c-button-red" value="Delete server"/>
+</form>
+</fieldset>
+</ul>
