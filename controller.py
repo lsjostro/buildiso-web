@@ -60,16 +60,12 @@ def system_form():
         web.form.Hidden('name'), 
 
         web.form.Textbox('hostname',
-                         web.form.regexp('^([a-zA-Z0-9]|[a-zA-Z0-9]
-                                         [a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])
-                                         (\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]
-                                         {0,61}[a-zA-Z0-9]))*$','Invalid'),
+                         web.form.regexp("^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9]))*$",'Invalid'),
                          web.form.notnull, size="36", 
                          description="Hostname (FQDN)"), 
         
         web.form.Hidden('adv_networks', 
-                        pre='<label for="advnet"><a href="#">Advanced Networking</a>
-                             </label><div id="adv_network">'),
+                        pre='<label for="advnet"><a href="#">Advanced Networking</a></label><div id="adv_network">'),
         
         web.form.Textbox('mac_address', 
                          web.form.regexp('^\s*$|([a-fA-F0-9]{2}[:]?){6}','Invalid'), 
