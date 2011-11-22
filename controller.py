@@ -58,42 +58,71 @@ else:
 def system_form():
     return web.form.Form( 
         web.form.Hidden('name'), 
+
         web.form.Textbox('hostname',
-            web.form.regexp('^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9]))*$','Invalid'),
-            web.form.notnull, size="36", description="Hostname (FQDN)"), 
+                         web.form.regexp('^([a-zA-Z0-9]|[a-zA-Z0-9]
+                                         [a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])
+                                         (\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]
+                                         {0,61}[a-zA-Z0-9]))*$','Invalid'),
+                         web.form.notnull, size="36", 
+                         description="Hostname (FQDN)"), 
+        
         web.form.Hidden('adv_networks', 
-            pre='<label for="advnet"><a href="#">Advanced Networking</a></label><div id="adv_network">'),
+                        pre='<label for="advnet"><a href="#">Advanced Networking</a>
+                             </label><div id="adv_network">'),
+        
         web.form.Textbox('mac_address', 
-            web.form.regexp('^\s*$|([a-fA-F0-9]{2}[:]?){6}','Invalid'), 
-            post='<p/>', size="36", maxlength="17", description="Mac Address (Optional)"), 
-        web.form.Checkbox('bonding', id="bonding", value="bonding", post='<p/><div id="bond">', description="Enable Bonding "), 
-        web.form.Dropdown('eth_name1', ['eth0','eth1','eth2','eth3'], description="Interface "), 
+                         web.form.regexp('^\s*$|([a-fA-F0-9]{2}[:]?){6}','Invalid'), 
+                         post='<p/>', size="36", maxlength="17", 
+                         description="Mac Address (Optional)"), 
+        
+        web.form.Checkbox('bonding', id="bonding", value="bonding", 
+                          post='<p/><div id="bond">', description="Enable Bonding "), 
+        
+        web.form.Dropdown('eth_name1', ['eth0','eth1','eth2','eth3'], 
+                          description="Interface "), 
+        
         web.form.Textbox('mac_addr1', 
-            web.form.regexp('^\s*$|([a-fA-F0-9]{2}[:]?){6}','Invalid'), 
-            size="17", maxlength="17", post="<p/>", description="Mac "), 
-        web.form.Dropdown('eth_name2', ['eth0','eth1','eth2','eth3'], value="eth1", description="Interface "), 
+                         web.form.regexp('^\s*$|([a-fA-F0-9]{2}[:]?){6}','Invalid'), 
+                         size="17", maxlength="17", post="<p/>", description="Mac "), 
+        
+        web.form.Dropdown('eth_name2', ['eth0','eth1','eth2','eth3'], value="eth1", 
+                          description="Interface "), 
+        
         web.form.Textbox('mac_addr2', 
             web.form.regexp('^\s*$|([a-fA-F0-9]{2}[:]?){6}','Invalid'), 
             size="17", maxlength="17", post="<p/>", description="Mac "), 
-        web.form.Textbox('bonding_opts', size="36", post="</div></div>", description="Bonding Options", value="mode=1 miimon=100"), 
+        
+        web.form.Textbox('bonding_opts', size="36", post="</div></div>", 
+                         description="Bonding Options", value="mode=1 miimon=100"), 
+        
         web.form.Textbox('ip_address',
             web.form.notnull, 
             web.form.Validator('Invalid', lambda i: web.net.validipaddr(i)), 
             size="36", description="IP Address"),
+        
         web.form.Textbox('subnet',
             web.form.notnull,
             web.form.Validator('Invalid', lambda i: web.net.validipaddr(i)), 
             size="36", description="Netmask"), 
+        
         web.form.Textbox('gateway',
             web.form.notnull,
             web.form.Validator('Invalid', lambda i: web.net.validipaddr(i)), 
             size="36", description="Gateway"), 
+        
         web.form.Textbox('name_servers',
             web.form.Validator('Invalid', lambda i: web.net.validipaddr(i.split()[0])), 
             web.form.notnull, size="36", description="Name Servers"), 
-        web.form.Textbox('name_servers_search', web.form.notnull, size="36", description="Domain Search"), 
-        web.form.Dropdown('profile', model.get_profiles(), description="Kickstart Profile"),
-        web.form.Textbox('redhat_management_key', size="36", description="Activation Keys (Optional)")
+        
+        web.form.Textbox('name_servers_search', web.form.notnull, size="36", 
+                         description="Domain Search"), 
+        
+        web.form.Dropdown('profile', model.get_profiles(), 
+                          description="Kickstart Profile"),
+        
+        web.form.Textbox('redhat_management_key', size="36", 
+                         description="Activation Keys (Optional)")
      ) 
 
 class Login:
