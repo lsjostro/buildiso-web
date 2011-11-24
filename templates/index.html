@@ -1,12 +1,46 @@
 $def with (systems)
+   <script type="text/javascript" charset="utf-8">
+      (function(\$) {
+        \$(document).ready(function() {
+          \$('input[name="q"]').search('#systems li', function(on) {
+            on.all(function(results) {
+              var size = results ? results.size() : 0
+              \$('#count').text(size + ' results');
+            });
 
+            on.reset(function() {
+              \$('#none').hide();
+              \$('#systems li').show();
+            });
+
+            on.empty(function() {
+              \$('#none').show();
+              \$('#systems li').hide();
+            });
+
+            on.results(function(results) {
+              \$('#none').hide();
+              \$('#systems li').hide();
+              results.show();
+            });
+          });
+        });
+      })(jQuery);
+    </script>
 <ul>
 <form action="" method="post">
 <fieldset class="checkboxes">
 <h1>Cobbler Systems</h1><br/>
+    <p>
+      <div id="searchbox"><input type="text" name="q" value="" size="30"></div>
+    </p>
+
+    <p id="none" style="display:none">There were no systems to match your search!</p>
+    <ul id="systems">
     $for system in systems: 
-         <label class="label_check" for="$system['name']"><input type="checkbox" id="sys_" name="sys" value="$system['name']"/><a href=edit/$system['uid']>$system['name']</a></label>
+         <li><label class="label_check" for="$system['name']"><input type="checkbox" id="sys_" name="sys" value="$system['name']"/><a href=edit/$system['uid']>$system['name']</a></label></li>
 <input type="submit" class="c-button c-button-red" value="Download Boot ISO" />
+</ul>
 </fieldset> 
 </form>
 </ul>

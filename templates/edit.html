@@ -16,11 +16,11 @@ $def with (form, uid, message=None)
 $if message:
    <strong class="wrong">$message</strong>
 $:form.render_css()
-<input type="submit" class="c-button c-button-red" value="save" />    </form>
+<label for="submit"></label><input type="submit" class="c-button c-button-red" value="save" />    </form>
 </fieldset>
 <form action="../delete/$uid" method="post">
 <fieldset class="del">
-    <input type="submit" class="c-button c-button-red" value="Delete server"/>
+<input type="submit" class="c-button c-button-red" value="Delete server"/>
 </form>
 </fieldset>
 </ul>

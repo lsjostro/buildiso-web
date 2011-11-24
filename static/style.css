@@ -1,13 +1,15 @@
 * { margin: 0; padding: 0; }
 
 html        { font: 14px/18px 'HelveticaNeue-Light', 'Helvetica Neue', Arial, Helvetica, sans-serif; color: #fff; background: url(noise.png); }
-strong { color: #DA4A38; }
+strong { color: #DA4A38; padding-left: 8px; }
 a:link, a:hover, a:active { text-decoration: none; outline: none; }
 #content      { width: 380px; margin: 0 auto; padding: 20px 200px 240px; background: url(highlight.png) no-repeat 50% 0; }
 form        { width: 380px; padding: 15px 30px 0; margin-bottom: 18px; background: #4f84b8 url(box-grad.png) repeat-x 0 0; border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; -khtml-border-radius: 10px; box-shadow: 0 5px 12px rgba(0,0,0,.4); -webkit-box-shadow: 0 5px 12px rgba(0,0,0,.4); -moz-box-shadow: 0 5px 12px rgba(0,0,0,.4); -khtml-box-shadow: 0 5px 12px rgba(0,0,0,.4); }
 fieldset    { border: 0; padding-bottom: 20px; }
 p           { padding-top: 5px; padding-bottom: 5px;}
 label       { display: block; cursor: pointer; line-height: 15px; padding-bottom: 9px; padding-top: 5px; text-shadow: 0 -1px 0 rgba(0,0,0,.2); }
+#content ul {list-style-type: none; padding: 0; margin: 0;}
+#content ul li {list-style-type: none;} 
 #adv_network label[for="bonding"]  { display: inline; cursor: pointer; line-height: 14px; text-shadow: 0 -1px 0 rgba(0,0,0,.2); }
 #adv_network label[for="bonding_opts"]  { display: block; cursor: pointer; line-height: 14px; padding-bottom: 9px; padding-top: 5px; text-shadow: 0 -1px 0 rgba(0,0,0,.2); }
 #bond label       { display: inline; cursor: pointer; line-height: 20px; padding-bottom: 1px; text-shadow: 0 -1px 0 rgba(0,0,0,.2); }
@@ -27,6 +29,17 @@ button, input, select, textarea {
   font-size: inherit;
 }
 
+#searchbox input[type=text]{
+    background: url(glass.png) no-repeat;
+    background-color: #fff;
+    background-position: 1 1;
+    padding-left: 23px;
+    height: 25px;
+    margin-right: 0;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
 input[type=email],
 input[type=password],
 input[type=text],
