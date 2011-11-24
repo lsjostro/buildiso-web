@@ -188,6 +188,7 @@ def generate_iso(systems, token):
     options['iso'] = filename 
     options['profiles'] = '~'
     options['systems'] = systems
+    options['tempdir'] = '/tmp'
 
     try:
         status = server.background_buildiso(options, token)
